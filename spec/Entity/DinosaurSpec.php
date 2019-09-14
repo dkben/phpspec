@@ -12,4 +12,16 @@ class DinosaurSpec extends ObjectBehavior
     {
         $this->shouldHaveType(Dinosaur::class);
     }
+
+    function it_should_default_to_zero_length()
+    {
+        $this->getLength()->shouldReturn(0);
+    }
+
+    function it_should_allow_to_set_length()
+    {
+        $this->setLength(9);
+
+        $this->getLength()->shouldReturn(9);
+    }
 }
