@@ -46,4 +46,11 @@ class DinosaurSpec extends ObjectBehavior
 
         $this->getLength()->shouldReturn(9);
     }
+
+    function it_should_not_shrink()
+    {
+        $this->setLength(15);
+
+        $this->getLength()->shouldBeGreaterThan(12);
+    }
 }
