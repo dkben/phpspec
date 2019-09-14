@@ -67,4 +67,14 @@ class DinosaurSpec extends ObjectBehavior
 
         $this->getDescription()->shouldReturn('The Tyrannosaurus carnivorous dinosaur is 12 meters long');
     }
+
+    function it_should_grow_a_large_velociraptor()
+    {
+        $this->beConstructedThrough('growVelociraptor', [5]);
+
+        $this->shouldBeAnInstanceOf(Dinosaur::class);
+        $this->getGenus()->shouldBeString();
+        $this->getGenus()->shouldBe('Velociraptor');
+        $this->getLength()->shouldBe(5);
+    }
 }
