@@ -2,7 +2,8 @@
     "license": "proprietary",
     "type": "project",
     "require-dev": {
-        "phpspec/phpspec": "^5.1"
+        "phpspec/phpspec": "^5.1",
+        "phpspec/nyan-formatters": "dev-master"
     },
     "autoload": {
         "psr-4": {
