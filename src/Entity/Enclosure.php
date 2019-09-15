@@ -25,7 +25,6 @@ class Enclosure
 
     private function canAddDinosaur(Dinosaur $dinosaur): bool
     {
-        return count($this->dinosaurs) === 0 ||
-            ($this->dinosaurs[0]->isCarnivorous() === $dinosaur->isCarnivorous());
+        return count($this->dinosaurs) === 0 || $dinosaur->hasSameDietAs($this->dinosaurs[0]);
     }
 }
