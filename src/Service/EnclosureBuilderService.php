@@ -8,8 +8,11 @@ use App\Factory\DinosaurFactory;
 
 class EnclosureBuilderService
 {
+    private $dinosaurFactory;
+
     public function __construct(DinosaurFactory $dinosaurFactory)
     {
+        $this->dinosaurFactory = $dinosaurFactory;
     }
 
     public function buildEnclosure(
@@ -20,6 +23,7 @@ class EnclosureBuilderService
         $enclosure = new Enclosure();
 
         $this->addSecuritySystems($numberOfSecuritySystems, $enclosure);
+        $this->addDinosaurs($numberOfDinosaurs, $enclosure);
 
         return $enclosure;
     }
@@ -31,6 +35,15 @@ class EnclosureBuilderService
             $securityName = $securityNames[array_rand($securityNames)];
             $security = new Security($securityName, true, $enclosure);
             $enclosure->addSecurity($security);
+        }
+    }
+
+    private function addDinosaurs(int $numberOfDinosaurs, Enclosure $enclosure)
+    {
+        for ($i = 0; $i < $numberOfDinosaurs; $i++) {
+            $enclosure->addDinosaur(
+                $this->dinosaurFactory->growVelociraptor(5)
+            );
         }
     }
 
