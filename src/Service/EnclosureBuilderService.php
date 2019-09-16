@@ -4,9 +4,14 @@ namespace App\Service;
 
 use App\Entity\Enclosure;
 use App\Entity\Security;
+use App\Factory\DinosaurFactory;
 
 class EnclosureBuilderService
 {
+    public function __construct(DinosaurFactory $dinosaurFactory)
+    {
+    }
+
     public function buildEnclosure(
         int $numberOfSecuritySystems = 1,
         int $numberOfDinosaurs = 3
