@@ -47,12 +47,7 @@ class Enclosure
         $this->securities[] = $security;
     }
 
-    private function canAddDinosaur(Dinosaur $dinosaur): bool
-    {
-        return count($this->dinosaurs) === 0 || $dinosaur->hasSameDietAs($this->dinosaurs[0]);
-    }
-
-    private function isSecurityActive(): bool
+    public function isSecurityActive(): bool
     {
         foreach ($this->securities as $security) {
             if ($security->getIsActive()) {
@@ -62,4 +57,10 @@ class Enclosure
 
         return false;
     }
+
+    private function canAddDinosaur(Dinosaur $dinosaur): bool
+    {
+        return count($this->dinosaurs) === 0 || $dinosaur->hasSameDietAs($this->dinosaurs[0]);
+    }
+
 }
