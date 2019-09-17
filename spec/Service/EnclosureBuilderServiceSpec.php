@@ -35,6 +35,9 @@ class EnclosureBuilderServiceSpec extends ObjectBehavior
         $enclosure->isSecurityActive()->shouldReturn(true);
         $enclosure->getDinosaurs()[0]->shouldBe($dino1);
         $enclosure->getDinosaurs()[1]->shouldBe($dino2);
+
+        $dinosaurFactory->growVelociraptor(Argument::any())
+            ->shouldHaveBeenCalledTimes(2);
     }
-    
+
 }
