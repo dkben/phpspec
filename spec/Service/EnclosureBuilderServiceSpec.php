@@ -36,4 +36,5 @@ class EnclosureBuilderServiceSpec extends ObjectBehavior
         $enclosure->getDinosaurs()[0]->shouldBe($dino1);
         $enclosure->getDinosaurs()[1]->shouldBe($dino2);
     }
+    
 }
